@@ -13,7 +13,7 @@ You should create a config.json file with :
 }
 ```
 
-- Bearer token can be create through User > Security > Long term token
+- Bearer token can be create through _User > Security > Long term token_
 - Sensors can be configured with configuration.yaml
 ``` yaml
 template:
