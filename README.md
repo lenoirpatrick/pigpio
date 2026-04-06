@@ -1,7 +1,7 @@
 # pigpio
 Monitoring d'un raspberrypi
 
-# basgdes
+# Badges
 
 # Installation
 You should create a config.json file with : 
