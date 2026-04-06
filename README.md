@@ -1,9 +1,12 @@
 # pigpio
-Monitoring d'un raspberrypi
+Monitoring d'un raspberrypi pour remonter les informations vers Home Assistant
 
-# Badges
-[![python](https://img.shields.io/badge/Python-3.9-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
-  
+![Python 3.11](https://img.shields.io/badge/python-3.11-green.svg?style=flat&logo=python&logoColor=white)
+![Home Assistant](https://img.shields.io/badge/Home_Assistant-2026.4-blue?style=flat&logo=homeassistant&logoColor=white)
+
+[![GitHub stars](https://img.shields.io/github/stars/lenoirpatrick/pigpio?style=social)](https://github.com/lenoirpatrick/pigpio)
+[![GitHub license](https://img.shields.io/github/license/lenoirpatrick/pigpio)](https://github.com/lenoirpatrick/pigpio)
+
 # Installation
 You should create a config.json file with : 
 
@@ -51,4 +54,9 @@ rest_command:
           "ram_usage": "{{ ram_usage }}"
         }
       }
+```
+
+# Crontab
+```
+*/5 * * * * /usr/bin/python3 /home/pi/pigpio/pigpio.py >> /home/pi/pigpio/log.log 2>&1
 ```
