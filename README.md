@@ -58,5 +58,5 @@ rest_command:
 
 # Crontab
 ```
-*/5 * * * * /usr/bin/python3 /home/pi/pigpio/pigpio.py >> /home/pi/pigpio/log.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/pi/app/pigpio/pigpio.py >> /home/pi/app/pigpio/log.log 2>&1
 ```
