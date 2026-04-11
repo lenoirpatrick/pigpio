@@ -5,7 +5,16 @@ import requests
 from datetime import datetime
 from urllib.parse import urlparse
 
-DOMAINS_ALLOWLIST = ["192.168.1.174"]
+# Obtenir le répertoire courant du script exécuté
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construire le chemin vers config.json
+config_path = os.path.join(current_dir, "config.json")
+
+with open(config_path, "r", encoding="utf-8") as f:
+    _config = json.load(f)
+
+DOMAINS_ALLOWLIST = _config.get("domains_allowlist")
 
 def _get_system_metrics():
     """Récupère les métriques système (température, CPU, RAM)."""
@@ -54,14 +63,6 @@ def _send_to_home_assistant(data, config):
 
 def main():
     """Point d'entrée principal du script."""
-    # Obtenir le répertoire courant du script exécuté
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-
-    # Construire le chemin vers config.json
-    config_path = os.path.join(current_dir, "config.json")
-
-    with open(config_path, "r", encoding="utf-8") as f:
-        _config = json.load(f)
 
     metrics = _get_system_metrics()
     response = _send_to_home_assistant(metrics, _config)
