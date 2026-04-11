@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+from datetime import datetime  # Ajoute cette ligne
 
 def get_system_metrics():
     """Récupère les métriques système (température, CPU, RAM)."""
@@ -20,7 +21,9 @@ def get_system_metrics():
         .readline()
         .strip()
     )
-    return {"temperature": temp, "cpu_usage": cpu, "ram_usage": ram}
+    # Remplace "demo" par la date actuelle
+    cpu_date_maj = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return {"temperature": temp, "cpu_usage": cpu, "ram_usage": ram, "cpu_date_maj": cpu_date_maj}
 
 def send_to_home_assistant(data, config):
     """Envoie les données à Home Assistant."""
@@ -29,13 +32,13 @@ def send_to_home_assistant(data, config):
         "Authorization": config["home_assistant"]["token"],
         "content-type": "application/json",
     }
-    payload = {"state": "ok", "attributes": data}
+    payload = {"state": True, "attributes": data}
     response = requests.post(url, headers=headers, json=payload)
     return response
 
 def main():
     """Point d'entrée principal du script."""
-    with open("config.json", "r", encoding="utf-8") as f:
+    with open("/home/pi/pigpio/config.json", "r", encoding="utf-8") as f:
         config = json.load(f)
 
     metrics = get_system_metrics()
