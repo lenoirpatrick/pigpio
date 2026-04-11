@@ -8,6 +8,7 @@ Monitoring d'un raspberrypi pour remonter les informations vers Home Assistant
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=lenoirpatrick_pigpio&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=lenoirpatrick_pigpio)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=lenoirpatrick_pigpio&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=lenoirpatrick_pigpio)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=lenoirpatrick_pigpio&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=lenoirpatrick_pigpio)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lenoirpatrick_pigpio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lenoirpatrick_pigpio)
 
 [![GitHub stars](https://img.shields.io/github/stars/lenoirpatrick/pigpio?style=social)](https://github.com/lenoirpatrick/pigpio)
 [![GitHub license](https://img.shields.io/github/license/lenoirpatrick/pigpio)](https://github.com/lenoirpatrick/pigpio)
@@ -21,6 +22,7 @@ You should create a config.json file with :
         "url": "http://{ha_ip_address}:{ha_port}/api/states/sensor.{sensor_name}",
         "token": "Bearer {ha_bearer_token}"
     }
+    "domains_allowlist": ["{ha_ip_address}"]
 }
 ```
 
