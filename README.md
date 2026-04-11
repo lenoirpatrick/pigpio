@@ -22,10 +22,10 @@ You should create a config.json file with :
 - Bearer token can be create through _User > Security > Long term token_
 - Sensors can be configured with configuration.yaml
 - List of sensors
-  - raspberry_temperature : actual temperature of the rpi
-  - raspberry_cpu_usage : actual use of the CPU
-  - raspberry_ram_usage : actual use of the RAM
-  - raspberry_cpu_date_maj : date of update
+  - **raspberry_temperature** : actual temperature of the rpi
+  - **raspberry_cpu_usage** : actual use of the CPU
+  - **raspberry_ram_usage** : actual use of the RAM
+  - **raspberry_cpu_date_maj** : date of update
 ``` yaml
 template:
 - sensor:
