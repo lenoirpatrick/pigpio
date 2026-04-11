@@ -21,6 +21,11 @@ You should create a config.json file with :
 
 - Bearer token can be create through _User > Security > Long term token_
 - Sensors can be configured with configuration.yaml
+- List of sensors
+  - raspberry_temperature : actual temperature of the rpi
+  - raspberry_cpu_usage : actual use of the CPU
+  - raspberry_ram_usage : actual use of the RAM
+  - raspberry_cpu_date_maj : date of update
 ``` yaml
 template:
 - sensor:
@@ -37,6 +42,10 @@ template:
     unique_id: raspberry_ram_usage
     name: Usage RAM Raspberry
     state: '{{ state_attr(''sensor.raspberry_system'', ''ram_usage'') }}'
+  - default_entity_id: sensor.raspberry_cpu_date_maj
+    unique_id: raspberry_cpu_date_maj
+    name: Usage CPU Raspberry MAJ
+    state: '{{ state_attr(''sensor.raspberry_system'', ''cpu_date_maj'') }}'
     
 # PIGPIO
 rest_command:
