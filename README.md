@@ -4,6 +4,11 @@ Monitoring d'un raspberrypi pour remonter les informations vers Home Assistant
 ![Python 3.11](https://img.shields.io/badge/python-3.11-green.svg?style=flat&logo=python&logoColor=white)
 ![Home Assistant](https://img.shields.io/badge/Home_Assistant-2026.4-blue?style=flat&logo=homeassistant&logoColor=white)
 
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=lenoirpatrick_pigpio&metric=bugs)](https://sonarcloud.io/summary/new_code?id=lenoirpatrick_pigpio)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=lenoirpatrick_pigpio&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=lenoirpatrick_pigpio)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=lenoirpatrick_pigpio&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=lenoirpatrick_pigpio)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=lenoirpatrick_pigpio&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=lenoirpatrick_pigpio)
+
 [![GitHub stars](https://img.shields.io/github/stars/lenoirpatrick/pigpio?style=social)](https://github.com/lenoirpatrick/pigpio)
 [![GitHub license](https://img.shields.io/github/license/lenoirpatrick/pigpio)](https://github.com/lenoirpatrick/pigpio)
 
