@@ -58,7 +58,7 @@ def _send_to_home_assistant(data, config):
     payload = {"state": True, "attributes": data}
 
     if urlparse(url).hostname in DOMAINS_ALLOWLIST:
-        response = requests.post(url, headers=headers, json=payload)
+        response = requests.post(url, headers=headers, json=payload, timeout=15)
     else:
         response = None
     return response
