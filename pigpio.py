@@ -1,9 +1,11 @@
+""" Script de récupération des informations d'un raspberrypi """
+
+from datetime import datetime
 import os
 import json
 import platform
-import requests
-from datetime import datetime
 from urllib.parse import urlparse
+import requests
 
 # Obtenir le répertoire courant du script exécuté
 current_dir = os.path.dirname(os.path.abspath(__file__))
