@@ -23,6 +23,7 @@ def _get_system_metrics():
     temp = 0
     cpu = 0
     ram = 0
+    disk_usage = 0
 
     # Récupère le nom du système d'exploitation
     os_type = platform.system()
@@ -44,9 +45,15 @@ def _get_system_metrics():
             .readline()
             .strip()
         )
+        disk_usage = (
+            os.popen("df -h /dev/mmcblk0p2 | awk 'NR==2 {gsub(/%/,\"\"); print $5}'")
+            .readline()
+            .strip()
+        )
     # Remplace "demo" par la date actuelle
     cpu_date_maj = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    return {"temperature": temp, "cpu_usage": cpu, "ram_usage": ram, "cpu_date_maj": cpu_date_maj}
+    return {"temperature": temp, "cpu_usage": cpu, "ram_usage": ram, "cpu_date_maj": cpu_date_maj,
+            "disk_usage": disk_usage}
 
 def _send_to_home_assistant(data, config):
     """Envoie les données à Home Assistant."""
