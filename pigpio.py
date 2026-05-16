@@ -1,12 +1,15 @@
 """ Script de récupération des informations d'un raspberrypi """
 
 from datetime import datetime
+import logging
 import os
 import json
 import platform
 import subprocess
 from urllib.parse import urlparse
 import requests
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
 # Obtenir le répertoire courant du script exécuté
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -71,7 +74,7 @@ def _send_to_home_assistant(data, config):
         response.raise_for_status()
         return response
     except requests.exceptions.RequestException as e:
-        print(f"Erreur lors de l'envoi vers Home Assistant : {e}")
+        logging.error("Erreur lors de l'envoi vers Home Assistant : %s", e)
         return None
 
 
@@ -81,8 +84,8 @@ def main():
     response = _send_to_home_assistant(metrics, _config)
 
     if response:
-        print("Données envoyées :", metrics)
-        print("Réponse du serveur :", response.status_code, response.text)
+        logging.info("Données envoyées : %s", metrics)
+        logging.info("Réponse du serveur : %s %s", response.status_code, response.text)
 
 
 if __name__ == "__main__":
